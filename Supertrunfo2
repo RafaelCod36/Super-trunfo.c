@@ -1,0 +1,26 @@
+#include <stdio.h>
+      int main() {
+        char estado[20]= "Ceara";
+        printf("O estado é: %s\n", estado);
+
+        char capital[20] = "Fortaleza";
+        printf("A capital é: %s\n", capital);
+
+        char codigo_carta[10]= "C01";
+        printf("O código da carta é: %s\n", codigo_carta);
+
+        int populacao = 2000000;
+        printf("A população é: %d\n", populacao);
+
+        float area = 1000000.0;
+        printf("A área é: %.2f km²\n", area);
+
+        float pib = 300000.0;
+        printf("O PIB é: %.2f milhões\n", pib);
+
+        int pontos_turisticos = 50;
+        printf("Pontos turísticos: %d\n", pontos_turisticos);
+
+        return 0;
+
+      }
