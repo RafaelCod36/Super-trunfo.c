@@ -1,89 +1,88 @@
 #include <stdio.h>
-    
-        int main() {
+#include <string.h>
 
-        char estado[20]= "Rio de Janeiro";
-        printf("O estado é: %s\n", estado);
-
-        char capital[20] = "Rio de Janeiro";
-        printf("A capital é: %s\n", capital);
-
-        char codigo_carta[10]= "R01";
-        printf("O código da carta é: %s\n", codigo_carta);
-
-        int populacao = 4000000;
-        printf("A população é: %d\n", populacao);
-
-        float area = 1500000.0;
-        printf("A área é: %.2f km²\n", area);
-        
-        float pib = 2000000.50;
-        printf("O PIB é: %.2f bilhões\n", pib);
-
-        int popntos_turisticos = 60;
-        printf("O número de pontos turísticos é: %d\n", popntos_turisticos);
-
-        float densidade_populacional = populacao / area;
-        printf("A densidade populacional é: %.2f habitantes/km²\n", densidade_populacional);
-
-        float pib_per_capita = pib * 1000000000 / populacao;
-        printf("O PIB per capita é: %.2f\n", pib_per_capita);
-
-        float super = (populacao + area + pib + popntos_turisticos + densidade_populacional + pib_per_capita) / 6;
-        printf("O valor do super trunfo é: %.2f\n", super);
-
-        char estado2 [50] = "Ceara";
-
-        printf("O estado é: %s\n", estado2);
-
-        char capital2 [50] = "Fortaleza";
-        printf("A capital é: %s\n", capital2);
-
-        char codigo_carta2 [50]= "C01";
-        printf("O código da carta é: %s\n", codigo_carta2);
-
-        int populacao2 = 2000000;
-        printf("A população é: %d\n", populacao2);
-
-        float area2 = 1000000.0;
-        printf("A área é: %.2f km²\n", area2);
-
-        float pib2 = 300000.0;
-        printf("O PIB é: %.2f milhões\n", pib2);
-
-        int pontos_turisticos2 = 50;
-        printf("Pontos turísticos: %d\n", pontos_turisticos2);
-
-        float densidade_populacional2 = populacao / area;
-        printf("A densidade populacional é: %.2f habitantes/km²\n", densidade_populacional2);
-
-        float pib_per_capita2 = pib * 1000000 / populacao;
-        printf("O PIB per capita é: %.2f\n", pib_per_capita2);
-
-        float super2 = (populacao + area + pib + pontos_turisticos2 + densidade_populacional + pib_per_capita) / 6;
-        printf("O valor do super trunfo é: %.2f\n", super2);
-
-        printf("Comparando os valores de super trunfo:\n");
-        if (super > super2) {
-            printf("O super trunfo do Rio de Janeiro é maior.\n");
-        } else if (super < super2) {
-            printf("O super trunfo do Ceará é maior.\n");
-        } else {
-            printf("Os super trunfos são iguais.\n");
-        }
-
-        return 0;
-
-    }
+// Definição da struct
 typedef struct {
     char estado[50];
     char capital[50];
     char codigo_carta[10];
     int populacao;
     float area;
-    float pib;
+    float pib;  // em bilhões
     int pontos_turisticos;
     float densidade_populacional;
     float pib_per_capita;
     float super;
 } Carta;
+
+int main() {
+    // Carta 1: Rio de Janeiro
+    Carta carta1;
+    strcpy(carta1.estado, "Rio de Janeiro");
+    strcpy(carta1.capital, "Rio de Janeiro");
+    strcpy(carta1.codigo_carta, "R01");
+    carta1.populacao = 4000000;
+    carta1.area = 1500000.0;
+    carta1.pib = 2000.50; // bilhões
+    carta1.pontos_turisticos = 60;
+
+    // Calculando valores derivados
+    carta1.densidade_populacional = carta1.populacao / carta1.area;
+    carta1.pib_per_capita = (carta1.pib * 1000000000) / carta1.populacao;
+    carta1.super = (carta1.populacao + carta1.area + carta1.pib + 
+                   carta1.pontos_turisticos + carta1.densidade_populacional + 
+                   carta1.pib_per_capita) / 6;
+
+    // Carta 2: Ceará
+    Carta carta2;
+    strcpy(carta2.estado, "Ceará");
+    strcpy(carta2.capital, "Fortaleza");
+    strcpy(carta2.codigo_carta, "C01");
+    carta2.populacao = 2000000;
+    carta2.area = 1000000.0;
+    carta2.pib = 300.0; // bilhões
+    carta2.pontos_turisticos = 50;
+
+    carta2.densidade_populacional = carta2.populacao / carta2.area;
+    carta2.pib_per_capita = (carta2.pib * 1000000000) / carta2.populacao;
+    carta2.super = (carta2.populacao + carta2.area + carta2.pib + 
+                   carta2.pontos_turisticos + carta2.densidade_populacional + 
+                   carta2.pib_per_capita) / 6;
+
+    // Impressão das cartas
+    printf("===== Carta 1 =====\n");
+    printf("Estado: %s\n", carta1.estado);
+    printf("Capital: %s\n", carta1.capital);
+    printf("Código: %s\n", carta1.codigo_carta);
+    printf("População: %d\n", carta1.populacao);
+    printf("Área: %.2f km²\n", carta1.area);
+    printf("PIB: %.2f bilhões\n", carta1.pib);
+    printf("Pontos turísticos: %d\n", carta1.pontos_turisticos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidade_populacional);
+    printf("PIB per capita: %.2f\n", carta1.pib_per_capita);
+    printf("Super Trunfo: %.2f\n\n", carta1.super);
+
+    printf("===== Carta 2 =====\n");
+    printf("Estado: %s\n", carta2.estado);
+    printf("Capital: %s\n", carta2.capital);
+    printf("Código: %s\n", carta2.codigo_carta);
+    printf("População: %d\n", carta2.populacao);
+    printf("Área: %.2f km²\n", carta2.area);
+    printf("PIB: %.2f bilhões\n", carta2.pib);
+    printf("Pontos turísticos: %d\n", carta2.pontos_turisticos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidade_populacional);
+    printf("PIB per capita: %.2f\n", carta2.pib_per_capita);
+    printf("Super Trunfo: %.2f\n\n", carta2.super);
+
+    // Comparação
+    printf(">>> Comparando Super Trunfos:\n");
+    if (carta1.super > carta2.super) {
+        printf("O Super Trunfo do %s é maior!\n", carta1.estado);
+    } else if (carta1.super < carta2.super) {
+        printf("O Super Trunfo do %s é maior!\n", carta2.estado);
+    } else {
+        printf("Os Super Trunfos são iguais!\n");
+    }
+
+    return 0;
+}
